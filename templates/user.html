@@ -5,19 +5,38 @@
     <title>Users</title>
 </head>
 <body>
-    <h4>Hello user</h4>
-    <h4>{{ user_name }}</h4>
-    <p>{{ age }}</p>
-    {% if age > 18 %}
-        <p>Es mayor de edad</p>
-    {% endif %}
+    <div style="margin: 0 auto; width: 1140px; display: flex; justify-content:  center; align-items: center; flex-direction: column">
+<!--        <h4>Hello user</h4>-->
+<!--        <h4>{{ user_name }}</h4>-->
+<!--        <p>{{ age }}</p>-->
+<!--        {% if age > 18 %}-->
+<!--            <p>Es mayor de edad</p>-->
+<!--        {% endif %}-->
 
-    {% for items in list %}
-        <p>{{ items }}</p>
-    {% endfor %}
-    <h3>My favourite car</h3>
-    {% for key, value in car.items() %}
-        <p>{{ key }} -> {{value}}</p>
-    {% endfor %}
+<!--        {% for items in list %}-->
+<!--            <p>{{ items }}</p>-->
+<!--        {% endfor %}-->
+<!--        <h3>My favourite car</h3>-->
+<!--        {% for key, value in car.items() %}-->
+<!--            <p>{{ key }} -> {{value}}</p>-->
+<!--        {% endfor %}-->
+        <h2>Posiciones pares e impares</h2>
+        {% for x in range(0, list|count)  %}
+            {% if x % 2 == 0 %}
+                <p style="color: red">{{ list[x] }}</p>
+            {% else %}
+                <p style="color: blue">{{ list[x] }}</p>
+            {% endif %}
+        {%endfor%}
+        <h4>Colores</h4>
+        {% set cont = namespace(value=0) %}
+        {% for x in range(0, list|count)  %}
+            {% if cont.value == 3 %}
+                {% set cont.value = 0 %}
+            {%endif%}
+            <p style="background-color: {{ color[cont.value] }}">{{list[x]}}</p>
+            {% set cont.value = cont.value + 1 %}
+        {%endfor%}
+    </div>
 </body>
 </html>
