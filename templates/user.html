@@ -21,21 +21,18 @@
 <!--            <p>{{ key }} -> {{value}}</p>-->
 <!--        {% endfor %}-->
         <h2>Posiciones pares e impares</h2>
-        {% for x in range(0, list|count)  %}
-            {% if x % 2 == 0 %}
-                <p style="color: red">{{ list[x] }}</p>
+        {% for x in list  %}
+            {% if loop.index % 2 == 0 %}
+                <p style="color: red">{{ x }}</p>
             {% else %}
-                <p style="color: blue">{{ list[x] }}</p>
+                <p style="color: blue">{{ x }}</p>
             {% endif %}
         {%endfor%}
         <h4>Colores</h4>
         {% set cont = namespace(value=0) %}
-        {% for x in range(0, list|count)  %}
-            {% if cont.value == 3 %}
-                {% set cont.value = 0 %}
-            {%endif%}
-            <p style="background-color: {{ color[cont.value] }}">{{list[x]}}</p>
-            {% set cont.value = cont.value + 1 %}
+        {% for x in list %}
+<!--            no me funciona con {{ loop.cycle(color) }} color es la lista de colores-->
+            <p style="background-color:{{ loop.cycle('red','blue','green') }}">{{ x }}</p>
         {%endfor%}
     </div>
 </body>

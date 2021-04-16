@@ -66,15 +66,12 @@ def user(name= 'Gerson'):
     age = 16
     my_list = [1, 2, 3, 4, 4, 4565, 56, 6587,7895, 6565, 898, 56565, 6565, 154]
     color_list = ['red', 'blue', 'green']
-    cont = 0
-    aux = 0
     my_car = {
         "brand": "Mazda",
         "model": "RX-7 Spirit R",
         "year": 2002
     }
-    return render_template('user.html', user_name=name, age=age, list=my_list, car=my_car, color=color_list, cont= cont, aux=aux)
-
+    return render_template('user.html', user_name=name, age=age, list=my_list, car=my_car, color=color_list)
 
 # parametros
 @app.route('/params')
