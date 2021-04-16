@@ -64,7 +64,7 @@ def hello_guest(guest):
 @app.route('/user/<name>')
 def user(name= 'Gerson'):
     age = 16
-    my_list = {1, 2, 3, 4}
+    my_list = [1, 2, 3, 4]
     my_car = {
         "brand": "Mazda",
         "model": "RX-7 Spirit R",
