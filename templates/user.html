@@ -34,6 +34,25 @@
 <!--            no me funciona con {{ loop.cycle(color) }} color es la lista de colores-->
             <p style="background-color:{{ loop.cycle('red','blue','green') }}">{{ x }}</p>
         {%endfor%}
+        <br>
+<!--        <h2>Doble bucle</h2>-->
+<!--        {% for x in list %}-->
+<!--            {% set parentloop = loop %}-->
+<!--            {% for number in list %}-->
+<!--                <div class="clase_{{parentloop.index}}_{{loop.index}}">{{number}}</div>-->
+<!--            {% endfor %}-->
+<!--        {% endfor %}-->
+        <h2>Coches con fecha de fabricación superior a 2005</h2>
+        {% for car in car_list %}
+            {% for x, y in car.items() %}
+                {% if y.year > 2005 %}
+                    <h3>{{ x }}</h3>
+                    <p>Brand: {{ y.brand }}</p>
+                    <p>Model: {{ y.model }}</p>
+                    <p>Year: {{ y.year }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
     </div>
 </body>
 </html>

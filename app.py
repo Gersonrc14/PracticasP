@@ -71,7 +71,29 @@ def user(name= 'Gerson'):
         "model": "RX-7 Spirit R",
         "year": 2002
     }
-    return render_template('user.html', user_name=name, age=age, list=my_list, car=my_car, color=color_list)
+    car_list = [
+        {'car1': {
+            'brand': 'Mazda',
+            'model': 'RX-7 Spirit R',
+            'year': 2002
+        }},
+        {'car2': {
+            'brand': 'Lamborghini',
+            'model': 'Aventador',
+            'year': 2011
+        }},
+        {'car3': {
+            'brand': 'Shelby',
+            'model': '2020 GT500',
+            'year': 2019
+        }},
+        {'car4': {
+            'brand': 'Ferrari',
+            'model': '488 Pista',
+            'year': 2018
+        }}
+    ]
+    return render_template('user.html', user_name=name, age=age, list=my_list, car=my_car, color=color_list, car_list=car_list)
 
 # parametros
 @app.route('/params')
